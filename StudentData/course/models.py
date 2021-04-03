@@ -14,6 +14,10 @@ class course_master(models.Model):
         return f"{self.name}-{self.status}"
 
     def get_absolute_url(self):             # helps to redirect to another page
-        return reverse('course-view')
+        return reverse('course-list')
+
+
+
+
 
 

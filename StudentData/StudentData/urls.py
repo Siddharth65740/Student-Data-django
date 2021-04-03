@@ -20,6 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/',include('users.urls')),
     path('course/',include('course.urls')),
+    path('student/',include('Student.urls')),
     path('login/',auth_views.LoginView.as_view(template_name="users/sign-in.html"),name='login')
 
 ]
