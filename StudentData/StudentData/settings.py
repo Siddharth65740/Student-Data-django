@@ -34,7 +34,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'users',
     'course',
-    'Student',
+    'admission',
+    'bootstrap_datepicker_plus',
+    'students',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -126,5 +128,5 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL='home'
 CRISPY_TEMPLATE_PACK='bootstrap4'
 
-MEDIA_ROOT  = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
 MEDIA_URL='/media/'

@@ -35,22 +35,9 @@
                                         <tr role="row">
                                             <th rowspan="1" colspan="1">First Name</th>
                                             <th rowspan="1" colspan="1">Last Name</th>
-                                            <th rowspan="1" colspan="1">Middle Name</th>
                                             <th rowspan="1" colspan="1">Father First Name</th>
-                                            <th rowspan="1" colspan="1">Father Second Name</th>
                                             <th rowspan="1" colspan="1">Father last Name</th>
-                                            <th rowspan="1" colspan="1">Building Name</th>
-                                            <th rowspan="1" colspan="1">State Name</th>
-                                            <th rowspan="1" colspan="1">Area Name</th>
-                                            <th rowspan="1" colspan="1">City </th>
-                                            <th rowspan="1" colspan="1">Country</th>
-                                            <th rowspan="1" colspan="1">Phone Number</th>
-                                            <th rowspan="1" colspan="1">Landline Number</th>
-                                            <th rowspan="1" colspan="1">Birthdate</th>
                                             <th rowspan="1" colspan="1">Gender</th>
-                                            <th rowspan="1" colspan="1">School Name</th>
-                                            <th rowspan="1" colspan="1">Education Name</th>
-                                            <th rowspan="1" colspan="1">Photo</th>
                                             <th rowspan="1" colspan="1">Email</th>
                                             <th rowspan="1" colspan="1">Inquiry ID</th>
                                             <th rowspan="1" colspan="1">Action</th>
@@ -59,22 +46,9 @@
                                         <tr>
                                             <th rowspan="1" colspan="1">First Name</th>
                                             <th rowspan="1" colspan="1">Last Name</th>
-                                            <th rowspan="1" colspan="1">Middle Name</th>
                                             <th rowspan="1" colspan="1">Father First Name</th>
-                                            <th rowspan="1" colspan="1">Father Second Name</th>
                                             <th rowspan="1" colspan="1">Father last Name</th>
-                                            <th rowspan="1" colspan="1">Building Name</th>
-                                            <th rowspan="1" colspan="1">State Name</th>
-                                            <th rowspan="1" colspan="1">Area Name</th>
-                                            <th rowspan="1" colspan="1">City </th>
-                                            <th rowspan="1" colspan="1">Country</th>
-                                            <th rowspan="1" colspan="1">Phone Number</th>
-                                            <th rowspan="1" colspan="1">Landline Number</th>
-                                            <th rowspan="1" colspan="1">Birthdate</th>
                                             <th rowspan="1" colspan="1">Gender</th>
-                                            <th rowspan="1" colspan="1">School Name</th>
-                                            <th rowspan="1" colspan="1">Education Name</th>
-                                            <th rowspan="1" colspan="1">Photo</th>
                                             <th rowspan="1" colspan="1">Email</th>
                                             <th rowspan="1" colspan="1">Inquiry ID</th>
                                             <th rowspan="1" colspan="1">Action</th>
@@ -86,30 +60,23 @@
                                         <tr>
                                             <td>{{s.first_name }}</td>
                                             <td>{{s.last_name}}</td>
-                                            <td>{{s.middle_name}}</td>
                                             <td>{{s.father_firstname}}</td>
-                                            <td>{{s.father_second_name}}</td>
                                             <td>{{s.father_last_name}}</td>
-                                            <td>{{s.Building_name}}</td>
-                                            <td>{{s.state_name}}</td>
-                                            <td>{{s.area_name}}</td>
-                                            <td>{{s.city}}</td>
-                                            <td>{{s.country}}</td>
-                                            <td>{{s.ph_number}}</td>
-                                            <td>{{s.ph_number}}</td>
-                                            <td>{{s.birthdate}}</td>
                                             <td>{{s.gender}}</td>
-                                            <td>{{s.Schoolname}}</td>
-                                            <td>{{s.education}}</td>
-                                            <td>{{s.photo}}</td>
                                             <td>{{s.email}}</td>
                                             <td>{{s.inquiry_id}}</td>
+                                            <td>
+                                                <a href="{% url 'student-update' s.id %}">Update</a>/
+                                                <a href="{% url 'student-detail' s.id %}">View</a>/
+                                                <a href="{% url 'student-delete' s.id %}">Delete</a>
+
+                                            </td>
+
 
                                         </tr>
                                    {% endfor %}
                                   </tbody>
                                 </table>
-
                             </div>
                         </div>
                     </div>

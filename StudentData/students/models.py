@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from bootstrap_datepicker_plus import DatePickerInput, TimePickerInput, DateTimePickerInput, MonthPickerInput, YearPickerInput
 # Create your models here.
 
 class student(models.Model):
@@ -16,7 +17,7 @@ class student(models.Model):
     country=models.CharField(max_length=50)
     ph_number=models.CharField(max_length=11)
     ph_number_house=models.CharField(max_length=11)
-    birthdate=models.DateField()
+    birthdate=models.DateField(null=True, blank=True)
     choice=(
         ('Male','Male'),
         ('Female','Female')
@@ -28,8 +29,8 @@ class student(models.Model):
     email=models.EmailField()
     inquiry_id=models.CharField(max_length=50)
 
-    def __str__(self):
-        return f"{self.first_name}"
+    # def __str__(self):
+    #     return f"{self.first_name}"
 
     def get_absolute_url(self):             # helps to redirect to another page
         return reverse('student-list')
