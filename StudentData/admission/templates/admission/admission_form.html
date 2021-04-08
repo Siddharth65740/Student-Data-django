@@ -1,16 +1,48 @@
-{% extends "users/layout1.html" %}
+{% extends 'users/layout1.html' %}
+{% load static %}
 {% load crispy_forms_field %}
-{% load static  %}
-{% block extra_head_lib %}
+
+{% block extra_head_js_lib %}
+
+    <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="{% static 'plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css' %}" rel="stylesheet" />
+
+    <!-- Bootstrap DatePicker Css -->
+    <link href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.css' %}" rel="stylesheet" />
+
+    <!-- Wait Me Css -->
+    <link href="{% static 'plugins/waitme/waitMe.css' %}" rel="stylesheet" />
+
+     <!-- Colorpicker Css -->
+    <link href="{%static 'plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css'%}" rel="stylesheet" />
+
+    <!-- Multi Select Css -->
+    <link href="{% static 'plugins/multi-select/css/multi-select.css' %}" rel="stylesheet">
+
+    <!-- Bootstrap Spinner Css -->
+    <link href="{% static 'plugins/jquery-spinner/css/bootstrap-spinner.css'%}" rel="stylesheet">
+
+    <!-- Bootstrap Tagsinput Css -->
+    <link href="{% static 'plugins/bootstrap-tagsinput/bootstrap-tagsinput.css'%}" rel="stylesheet">
+
+
+     <!-- Dropzone Css -->
+    <link href="{% static 'plugins/dropzone/dropzone.css'%}" rel="stylesheet">
+
+    <!-- Sweet Alert Css -->
+    <link href="{% static 'plugins/sweetalert/sweetalert.css' %}" rel="stylesheet" />
+
+
     <!-- Bootstrap Select Css -->
-    <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css'%}" rel="stylesheet">
+    <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css' %}" rel="stylesheet" />
+
 {% endblock %}
 {% block body %}
-  <div class="row clearfix">
+<div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>New Course Form</h2>
+                            <h2>Student Personal Information</h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -25,227 +57,221 @@
                             </ul>
                         </div>
                         <div class="body">
-
-                            <form id="form_validation" method="POST" novalidate="novalidate">
-                               {% csrf_token %}
+                            <form id="form_validation" method="POST" enctype="multipart/form-data" novalidate="novalidate">
+                                {% csrf_token %}
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                       {% crispy_field form.Student_Id %}
-
-                                        <label class="form-label">Student id</label>
-
+                                        <label class="form-label">Student ID</label>
+                                        {% crispy_field form.Student_Id %}
                                     </div>
                                     {% if form.Student_Id.errors %}
-                                            {% for error in form.Student_Id.errors %}
-                                                <label id="id-error" class="error" for="id">This field is required.</label>
-
-                                            {% endfor %}
-                                        {% endif %}
+                                        {% for error in form.Student_Id.errors %}
+                                            <label id="Student_Id-error" class="error" for="Student_Id"><b>{{ error }}</b></label>
+                                        {% endfor %}
+                                    {% endif %}
                                 </div>
-
-
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        {% crispy_field form.Date_of_addmission %}
                                         <label class="form-label">Date of Admission</label>
+                                        {% crispy_field form.Date_of_addmission %}
                                     </div>
                                     {% if form.Date_of_addmission.errors %}
-                                            {% for error in form.Date_of_addmission.errors %}
-                                                <label id="date-error" class="error" for="date">This field is required.</label>
-
-                                            {% endfor %}
-                                        {% endif %}
+                                        {% for error in form.Date_of_addmission.errors %}
+                                            <label id="admission-error" class="error" for="admission"><b>{{ error }}</b></label>
+                                        {% endfor %}
+                                    {% endif %}
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
+                                        <label class="form-label">Course_Id</label>
                                         {% crispy_field form.Course_Id %}
-                                        <label class="form-label">Course Id</label>
                                     </div>
-                                    {% if form.Course_Id.errors %}
-                                            {% for error in form.Course_Id.errors %}
-                                                <label id="id1-error" class="error" for="id1">This field is required.</label>
-                                            {% endfor %}
-
-                                    {% endif %}
-                                </div>
-
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        {% crispy_field form.Addmission_Id %}
-                                        <label class="form-label">Admission Id</label>
-                                    </div>
-                                    {% if form.Addmission_Id.errors %}
-                                            {% for error in form.Addmission_Id.errors %}
-                                                <label id="id2-error" class="error" for="id2">This field is required.</label>
-                                            {% endfor %}
-
-                                    {% endif %}
-                                </div>
-
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        {% crispy_field form.Start_Time %}
-                                        <label class="form-label">Start Time</label>
-                                    </div>
-                                    {% if form.Start_Time.errors %}
-                                            {% for error in form.Start_Time.errors %}
-                                                <label id="time-error" class="error" for="time">This field is required.</label>
-                                            {% endfor %}
-
-                                    {% endif %}
-                                </div>
-
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        {% crispy_field form.End_Time %}
-                                        <label class="form-label">End Time</label>
-                                    </div>
-                                    {% if form.End_Time %}
-                                            {% for error in form.End_Time %}
-                                                <label id="time1-error" class="error" for="time">This field is required.</label>
-                                            {% endfor %}
-
-                                    {% endif %}
-                                </div>
-
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        {% crispy_field form.Receipt_Id %}
-                                        <label class="form-label">End Time</label>
-                                    </div>
-                                    {% if form.Receipt_Id %}
-                                            {% for error in form.Receipt_Id %}
-                                                <label id="time2-error" class="error" for="time">This field is required.</label>
-                                            {% endfor %}
-
-                                    {% endif %}
-                                </div>
-
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        {% crispy_field form.Start_Date %}
-                                        <label class="form-label">Start Date</label>
-                                    </div>
-                                    {% if form.Start_Date %}
-                                            {% for error in form.Start_Date %}
-                                                <label id="date1-error" class="error" for="date">This field is required.</label>
-                                            {% endfor %}
-
-                                    {% endif %}
-                                </div>
-
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        {% crispy_field form.End_Date %}
-                                        <label class="form-label">Start Date</label>
-                                    </div>
-                                    {% if form.End_Date %}
-                                            {% for error in form.End_Date %}
-                                                <label id="date2-error" class="error" for="date">This field is required.</label>
-                                            {% endfor %}
-
+                                    {% if form.Course_Id %}
+                                        {% for error in form.Course_Id.errors %}
+                                            <label id="Course_Id-error" class="error" for="Course_Id"><b>{{ error }}</b></label>
+                                        {% endfor %}
                                     {% endif %}
                                 </div>
 
                                  <div class="form-group form-float">
                                     <div class="form-line">
-                                        {% crispy_field form.Fees %}
+                                        <label class="form-label">Addmission_Id</label>
+                                        {% crispy_field form.Addmission_Id %}
+                                    </div>
+                                    {% if form.Addmission_Id.errors %}
+                                        {% for error in form.Addmission_Id.errors %}
+                                            <label id="Addmission_Id-error" class="error" for="Addmission_Id"><b>{{ error }}</b></label>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <label class="form-label">Start_Time</label>
+                                        {% crispy_field form.Start_Time %}
+                                    </div>
+                                    {% if form.Start_Time.errors %}
+                                        {% for error in form.Start_Time.errors %}
+                                            <label id="Start_Time-error" class="error" for="Start_Time"><b>{{ error }}</b></label>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <label class="form-label"> End_Time</label>
+                                        {% crispy_field form.End_Time 'class' 'form-control time24' %}
+                                    </div>
+                                    {% if form.End_Time.errors %}
+                                        {% for error in form.End_Time.errors %}
+                                            <label id="End_Time-error" class="error" for="End_Time"><b>{{ error }}</b></label>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <label class="form-label"> Receipt_Id=</label>
+                                        {% crispy_field form.Receipt_Id %}
+                                    </div>
+                                    {% if form.Receipt_Id.errors %}
+                                        {% for error in form.Receipt_Id.errors %}
+                                            <label id=" Receipt_Id=-error" class="error" for="Receipt_Id="><b>{{ error }}</b></label>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <label class="form-label">Start_Date</label>
+                                        {% crispy_field form.Start_Date %}
+                                    </div>
+                                    {% if form.Start_Date.errors %}
+                                        {% for error in form.Start_Date.errors %}
+                                            <label id="Start_Date-error" class="error" for="Start_Date"><b>{{ error }}</b></label>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <label class="form-label">End_Date</label>
+                                        {% crispy_field form.End_Date %}
+                                    </div>
+                                    {% if form.End_Date.errors %}
+                                        {% for error in form.End_Date.errors %}
+                                            <label id="End_Date-error" class="error" for="End_Date"><b>{{ error }}</b></label>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+
+                                <div class="form-group form-float">
+                                    <div class="form-line">
                                         <label class="form-label">Fees</label>
+                                        {% crispy_field form.Fees %}
                                     </div>
-                                    {% if form.Fees %}
-                                            {% for error in form.Fees %}
-                                                <label id="fee-error" class="error" for="fee">This field is required.</label>
-                                            {% endfor %}
-
+                                    {% if form.Fees.errors %}
+                                        {% for error in form.Fees.errors %}
+                                            <label id="Fees-error" class="error" for="Fees"><b>{{ error }}</b></label>
+                                        {% endfor %}
                                     {% endif %}
-                                 </div>
-
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                       <p>
-                                        <b>Status</b>
-                                       </p>
-                                   {% crispy_field form.Status 'class' 'btn-group bootstrap-select form-control show-tick '  %}
-
-
-                                    </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
+                                        <label class="form-label">Status</label>
+                                        {% crispy_field form.Status %}
+                                    </div>
+                                    {% if form.Status.errors %}
+                                        {% for error in form.Status.errors %}
+                                            <label id="Status-error" class="error" for="Status"><b>{{ error }}</b></label>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+
+                                 <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <label class="form-label">No_of_Days</label>
                                         {% crispy_field form.No_of_Days %}
-                                        <label class="form-label">Number Of Days</label>
                                     </div>
-                                    {% if form.No_of_Days %}
-                                            {% for error in form.No_of_Days %}
-                                                <label id="days-error" class="error" for="days">This field is required.</label>
-                                            {% endfor %}
-
+                                    {% if form.No_of_Days.errors %}
+                                        {% for error in form.No_of_Days.errors %}
+                                            <label id="No_of_Days-error" class="error" for="No_of_Days"><b>{{ error }}</b></label>
+                                        {% endfor %}
                                     {% endif %}
-                                 </div>
+                                </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        {% crispy_field form.Remarks %}
                                         <label class="form-label">Remarks</label>
+                                        {% crispy_field form.Remarks %}
                                     </div>
-                                    {% if form.Remarks %}
-                                            {% for error in form.Remarks %}
-                                                <label id="Remarks-error" class="error" for="Remarks">This field is required.</label>
-                                            {% endfor %}
-
+                                    {% if form.Remarks.errors %}
+                                        {% for error in form.Remarks.errors %}
+                                            <label id="Remarks-error" class="error" for="Remarks"><b>{{ error }}</b></label>
+                                        {% endfor %}
                                     {% endif %}
                                 </div>
+
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        {% crispy_field form.Pending_fees %}
-                                        <label class="form-label">Pending_fees</label>
+                                        <p>
+                                          <b>Pending_fees</b>
+                                        </p>
+                                        {% crispy_field form.Pending_fees 'class' 'btn-group bootstrap-select form-control show-tick' %}
                                     </div>
-                                    {% if form.Pending_fees %}
-                                            {% for error in form.Pending_fees %}
-                                                <label id="pemding-error" class="error" for="pending">This field is required.</label>
-                                            {% endfor %}
-
+                                    {% if form.Pending_fees.errors %}
+                                        {% for error in form.Pending_fees.errors %}
+                                            <label id="Pending_fees-error" class="error" for="Pending_fees"><b>{{ error }}</b></label>
+                                        {% endfor %}
                                     {% endif %}
                                 </div>
 
 
-
-
-
-
-                                <div class="form-group">
-                                    <input type="checkbox" id="checkbox" name="checkbox">
-                                    <label for="checkbox">I have read and accept the terms</label>
-                                </div>
                                 <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-
 {% endblock %}
 {% block extra_js_lib %}
-<script src="{% static 'plugins/dropzone/dropzone.js'%}"></script>
-<!-- Input Mask Plugin Js -->
-    <script src="{% static 'plugins/jquery-inputmask/jquery.inputmask.bundle.js'%}"></script>
+     <!-- Jquery Validation Plugin Css -->
+    <script src="{% static 'plugins/jquery-validation/jquery.validate.js' %}"></script>
 
-    <!-- Multi Select Plugin Js -->
-    <script src="{% static 'plugins/multi-select/js/jquery.multi-select.js'%}"></script>
+    <!-- JQuery Steps Plugin Js -->
+    <script src="{% static 'plugins/jquery-steps/jquery.steps.js' %}"></script>
 
-    <!-- Jquery Spinner Plugin Js -->
-    <script src="{% static 'plugins/jquery-spinner/js/jquery.spinner.js'%}"></script>
+    <!-- Sweet Alert Plugin Js -->
+    <script src="{% static 'plugins/sweetalert/sweetalert.min.js' %}"></script>
+
+    <!-- Custom Js -->
+    <script src="{% static 'js/pages/forms/form-validation.js' %}"></script>
+
+    <!-- Autosize Plugin Js -->
+    <script src="{% static 'plugins/autosize/autosize.js' %}"></script>
+
+    <!-- Moment Plugin Js -->
+    <script src="{% static 'plugins/momentjs/moment.js' %}"></script>
+
+    <!-- Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js' %}"></script>
+
+    <!-- Bootstrap Datepicker Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>
+
+    <!-- Custom Js -->
+    <script src="{% static 'js/pages/forms/basic-form-elements.js' %}"></script>
 
     <!-- Bootstrap Tags Input Plugin Js -->
     <script src="{% static 'plugins/bootstrap-tagsinput/bootstrap-tagsinput.js'%}"></script>
 
     <!-- noUISlider Plugin Js -->
     <script src="{% static 'plugins/nouislider/nouislider.js'%}"></script>
-    <script src="{% static 'js/pages/forms/advanced-form-elements.js'%}"></script>
+
 
 {% endblock %}

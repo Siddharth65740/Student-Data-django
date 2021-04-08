@@ -17,9 +17,18 @@ class create_view(CreateView):
 class admissionListView(ListView):
     model=admission
     fields ="__all__"
+    context_object_name = "admission_list"
 
 class admissionUpdateView(UpdateView):
     model = admission
-    fields = ['Start_Date','End_Date','Start_Time','End_Time']
+    fields = '__all__'
+
+class detail_student(DetailView):
+    model = admission
+
+
+class delete_student(DeleteView):
+    model = admission
+    success_url = '/admission/list'
 
 

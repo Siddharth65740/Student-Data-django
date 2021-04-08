@@ -1,11 +1,12 @@
 ﻿<!DOCTYPE html>
 {% load static %}
-<html>
+{% load crispy_forms_field %}
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>STUDENT DATABSE SYSTEM </title>
+    <title>STUDENT PROFILE</title>
     <!-- Favicon-->
     <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
 
@@ -19,9 +20,6 @@
     <!-- Waves Effect Css -->
     <link href="{% static 'plugins/node-waves/waves.css'%}" rel="stylesheet" />
 
-      <!-- Bootstrap Select Css -->
-    <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css'%}" rel="stylesheet" />
-
     <!-- Animation Css -->
     <link href="{% static 'plugins/animate-css/animate.css'%}" rel="stylesheet" />
 
@@ -30,26 +28,6 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="{% static 'css/themes/all-themes.css'%}" rel="stylesheet" />
-
-{% block extra_css_lib %}
-    <link href="{% static 'plugins/sweetalert/sweetalert.css' %}" rel="stylesheet" >
-     <!-- Multi Select Css -->
-    <link href="{% static 'plugins/multi-select/css/multi-select.css'%}" rel="stylesheet">
-
-    <!-- Colorpicker Css -->
-    <link href="{% static 'plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css'%}" rel="stylesheet" />
-    <!-- Bootstrap Spinner Css -->
-    <link href="{% static 'plugins/jquery-spinner/css/bootstrap-spinner.css'%}" rel="stylesheet">
-
-    <!-- Bootstrap Tagsinput Css -->
-    <link href="{% static 'plugins/bootstrap-tagsinput/bootstrap-tagsinput.css'%}" rel="stylesheet">
-
-    <!-- Bootstrap Select Css -->
-    <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css'%}" rel="stylesheet" />
-
-    <!-- noUISlider Css -->
-    <link href="{% static 'plugins/nouislider/nouislider.min.css'%}" rel="stylesheet" />
-{% endblock%}
 </head>
 
 <body class="theme-red">
@@ -90,7 +68,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="../../index.html">STUDENT DATABASE SYSTEM </a>
+                <a class="navbar-brand" href="../../index.html">STUDENT DATABASE SYSTEM</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -548,7 +526,7 @@
                             <span>Example Pages</span>
                         </a>
                         <ul class="ml-menu">
-                            <li>
+                            <li class="active">
                                 <a href="../../pages/examples/profile.html">Profile</a>
                             </li>
                             <li>
@@ -560,7 +538,7 @@
                             <li>
                                 <a href="../../pages/examples/forgot-password.html">Forgot Password</a>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="../../pages/examples/blank.html">Blank Page</a>
                             </li>
                             <li>
@@ -817,8 +795,187 @@
 
     <section class="content">
         <div class="container-fluid">
-            {% block body%}
-            {% endblock %}
+            <div class="row clearfix">
+                <div class="col-xs-12 col-sm-3">
+                    <div class="card profile-card">
+                        <div class="profile-header">&nbsp;</div>
+                        <div class="profile-body">
+                            <div class="image-area">
+                                <img src="{% static 'images/user.png'%}" alt="AdminBSB - Profile Image" height="100px" />
+                            </div>
+                            {% for a in admission_list %}
+                            <div class="content-area">
+                                <h3>{{a.Student_Id}}</h3>
+
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="profile-footer">
+                            <ul>
+                                <li>
+                                    <span>STUDENT<br>ID</span>
+                                    <span>{{admission.Student_Id}}</span>
+                                </li>
+                                <li>
+                                    <span>COURSE<br>ID</span>
+                                    <span>{{admission.Course_Id}}</span>
+                                </li>
+                                <li>
+                                    <span>ADMISSION ID</span>
+                                    <span>{{admission.Addmission_Id}}</span>
+                                </li>
+
+                            </ul>
+<!--                            <button class="btn btn-primary btn-lg waves-effect btn-block">FOLLOW</button>-->
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-xs-12 col-sm-9">
+                    <div class="card">
+                        <div class="body">
+                            <div>
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation"><a href="#profile_settings" aria-controls="settings" role="tab" data-toggle="tab">Profile</a></li>
+                                </ul>
+
+                                <div class="tab-content">
+
+                                    <div role="tabpanel" class="tab-pane fade in" id="profile_settings">
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <label for="InputExperience" class="col-sm-2 control-label">Date of addmission</label>
+
+                                                <div class="col-sm-10">
+                                                    <div class="form-line">
+                                                        {{admission.Date_of_addmission}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Start Time</label>
+
+                                                <div class="col-sm-10">
+                                                    <div class="form-line">
+                                                        {{admission.Start_Time}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">End Time</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{admission.End_Time }}
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Receipt Id</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{admission.Receipt_Id }}
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Start_Date</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{admission.Start_Date }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">End_Date</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{admission.End_Date }}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Fees</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{admission.Fees}}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Status</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{admission.Status}}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">No_of_Days</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{admission.No_of_Days }}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Remarks</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{admission.Remarks}}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Remarks</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{admission.Remarks}}
+<!--                                                    <label class="form-label">Father First Name</label>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </form>
+                                    </div>
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -833,22 +990,15 @@
 
     <!-- Slimscroll Plugin Js -->
     <script src="{% static 'plugins/jquery-slimscroll/jquery.slimscroll.js'%}"></script>
-
     <!-- Waves Effect Plugin Js -->
     <script src="{% static 'plugins/node-waves/waves.js'%}"></script>
 
     <!-- Custom Js -->
     <script src="{% static 'js/admin.js'%}"></script>
-
+    <script src="{% static 'js/pages/examples/profile.js'%}"></script>
 
     <!-- Demo Js -->
     <script src="{% static 'js/demo.js'%}"></script>
-
-
-{% block extra_js_lib %}
-
-{% endblock %}
 </body>
-
 
 </html>

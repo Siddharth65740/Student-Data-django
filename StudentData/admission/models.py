@@ -8,24 +8,27 @@ from django.urls import reverse
 
 class admission(models.Model):
     Student_Id=models.IntegerField()
-    Date_of_addmission=models.DateField()
+    Date_of_addmission=models.DateField(null=True, blank=True)
     Course_Id=models.IntegerField()
     Addmission_Id=models.IntegerField()
-    Start_Time=models.TimeField()
-    End_Time=models.TimeField()
+    Start_Time=models.TimeField(auto_now=False, auto_now_add=False)
+    End_Time=models.TimeField(auto_now=False, auto_now_add=False)
     Receipt_Id=models.IntegerField()
-    Start_Date=models.DateField()
-    End_Date=models.DateField()
+    Start_Date=models.DateField(null=True, blank=True)
+    End_Date=models.DateField(null=True, blank=True)
     Fees=models.IntegerField()
-    Status=models.CharField(max_length=6)
+    choice1=(
+        ('Active','Active'),
+        ('Deactive','Deactive')
+    )
+    Status=models.CharField(max_length=20,choices=choice1)
     No_of_Days=models.IntegerField()
     Remarks=models.CharField(max_length=22)
-    Pending_fees=models.IntegerField()
-
-    def __str__(self):
-        return f"{self.Student_Id},{self.Date_of_addmission},{self.Course_Id},{self.Addmission_Id},{self.Start_Time}," \
-               f"{self.End_Time},{self.Receipt_Id},{self.Start_Date},{self.End_Date}," \
-               f"{self.Fees},{self.Status},{self.No_of_Days},{self.Remarks},{self.Pending_fees}"
+    choice = (
+        ('Yes', 'Yes'),
+        ('No', 'No')
+    )
+    Pending_fees=models.CharField(max_length=20,choices=choice)
 
     def get_absolute_url(self):
         return reverse('admission-list')
