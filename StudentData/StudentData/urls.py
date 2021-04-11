@@ -24,6 +24,7 @@ urlpatterns = [
     path('users/',include('users.urls')),
     path('course/',include('course.urls')),
     path('admission/',include('admission.urls')),
+    path('payment/',include('payment.urls')),
     path('student/',include('students.urls')),
     path('login/',auth_views.LoginView.as_view(template_name="users/sign-in.html"),name='login')
 

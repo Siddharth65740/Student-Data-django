@@ -36,6 +36,7 @@
                                             <th>Name</th>
                                             <th>Description</th>
                                             <th>Duration<br>(in months)</th>
+                                            <th>Fees</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                     </thead>
@@ -44,6 +45,7 @@
                                             <th rowspan="1" colspan="1">Name</th>
                                             <th rowspan="1" colspan="1">Description</th>
                                             <th rowspan="1" colspan="1">Duration<br>(in months)</th>
+                                            <th rowspan="1" colspan="1">Fees</th>
                                             <th rowspan="1" colspan="1">Status</th>
                                             <th rowspan="1" colspan="1">Action</th>
 
@@ -55,6 +57,7 @@
                                             <td>{{c.name }}</td>
                                             <td>{{c.description }}</td>
                                             <td>{{c.duration }}</td>
+                                            <td>{{c.fees }}</td>
                                             <td>{{c.status }}</td>
                                             <td>
                                                 <a href="{% url 'course-update' c.id %}">Update</a>/

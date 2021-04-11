@@ -803,9 +803,9 @@
                             <div class="image-area">
                                 <img src="{% static 'images/user.png'%}" alt="AdminBSB - Profile Image" height="100px" />
                             </div>
-                            {% for a in admission_list %}
+                            {% for p in payment_list %}
                             <div class="content-area">
-                                <h3>{{a.Student}}</h3>
+                                <h3>{{p.receipt}}</h3>
 
                             </div>
                             {% endfor %}
@@ -813,12 +813,12 @@
                         <div class="profile-footer">
                             <ul>
                                 <li>
-                                    <span>STUDENT<br>ID</span>
-                                    <span>{{admission.Student}}</span>
+                                    <span>Receipt<br>Id</span>
+                                    <span>{{payment_info.receipt}}</span>
                                 </li>
                                 <li>
-                                    <span>COURSE<br>ID</span>
-                                    <span>{{admission.Course}}</span>
+                                    <span>Receipt<br>Date</span>
+                                    <span>{{payment_info.Receipt_Date}}</span>
                                 </li>
 
 
@@ -841,30 +841,40 @@
 
                                     <div role="tabpanel" class="tab-pane fade in" id="profile_settings">
                                         <form class="form-horizontal">
+
                                             <div class="form-group">
-                                                <label for="InputExperience" class="col-sm-2 control-label">Date of addmission</label>
+                                                <label for="InputExperience" class="col-sm-2 control-label">Amount</label>
 
                                                 <div class="col-sm-10">
                                                     <div class="form-line">
-                                                        {{admission.Date_of_addmission}}
+                                                        {{payment_info.Amount}}
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="InputSkills" class="col-sm-2 control-label">Start Time</label>
+                                                <label for="InputExperience" class="col-sm-2 control-label">Payment Type</label>
 
                                                 <div class="col-sm-10">
                                                     <div class="form-line">
-                                                        {{admission.Start_Time}}
+                                                        {{payment_info.payment_type}}
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="InputSkills" class="col-sm-2 control-label">End Time</label>
+                                                <label for="InputSkills" class="col-sm-2 control-label">Cheque Number</label>
+
+                                                <div class="col-sm-10">
+                                                    <div class="form-line">
+                                                        {{payment_info.ch_no}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">Bank Name</label>
 
                                                 <div class="col-sm-10">
                                                    <div class="form-line">
-                                                    {{admission.End_Time }}
+                                                    {{payment_info.Bank_Name }}
                                                     </div>
                                                 </div>
 
@@ -873,80 +883,15 @@
 
 
                                             <div class="form-group">
-                                                <label for="InputSkills" class="col-sm-2 control-label">Start_Date</label>
+                                                <label for="InputSkills" class="col-sm-2 control-label">Branch Name</label>
 
                                                 <div class="col-sm-10">
                                                    <div class="form-line">
-                                                    {{admission.Start_Date }}
+                                                    {{payment_info.Branch_Name }}
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="form-group">
-                                                <label for="InputSkills" class="col-sm-2 control-label">End_Date</label>
-
-                                                <div class="col-sm-10">
-                                                   <div class="form-line">
-                                                    {{admission.End_Date }}
-<!--                                                    <label class="form-label">Father First Name</label>-->
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="InputSkills" class="col-sm-2 control-label">Fees</label>
-
-                                                <div class="col-sm-10">
-                                                   <div class="form-line">
-                                                    {{admission.Fees}}
-<!--                                                    <label class="form-label">Father First Name</label>-->
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="InputSkills" class="col-sm-2 control-label">Status</label>
-
-                                                <div class="col-sm-10">
-                                                   <div class="form-line">
-                                                    {{admission.Status}}
-<!--                                                    <label class="form-label">Father First Name</label>-->
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="InputSkills" class="col-sm-2 control-label">No_of_Days</label>
-
-                                                <div class="col-sm-10">
-                                                   <div class="form-line">
-                                                    {{admission.No_of_Days }}
-<!--                                                    <label class="form-label">Father First Name</label>-->
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="InputSkills" class="col-sm-2 control-label">Remarks</label>
-
-                                                <div class="col-sm-10">
-                                                   <div class="form-line">
-                                                    {{admission.Remarks}}
-<!--                                                    <label class="form-label">Father First Name</label>-->
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="InputSkills" class="col-sm-2 control-label">Pending Fees</label>
-
-                                                <div class="col-sm-10">
-                                                   <div class="form-line">
-                                                    {{admission.Pending_fees}}
-<!--                                                    <label class="form-label">Father First Name</label>-->
-                                                    </div>
-                                                </div>
-                                            </div>
 
 
                                         </form>

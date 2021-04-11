@@ -1,0 +1,190 @@
+{% extends 'users/layout1.html' %}
+{% load static %}
+{% load crispy_forms_field %}
+
+{% block extra_head_js_lib %}
+
+    <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="{% static 'plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css' %}" rel="stylesheet" />
+
+    <!-- Bootstrap DatePicker Css -->
+    <link href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.css' %}" rel="stylesheet" />
+
+
+    <!-- Wait Me Css -->
+    <link href="{% static 'plugins/waitme/waitMe.css' %}" rel="stylesheet" />
+
+     <!-- Colorpicker Css -->
+    <link href="{%static 'plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css'%}" rel="stylesheet" />
+
+    <!-- Multi Select Css -->
+    <link href="{% static 'plugins/multi-select/css/multi-select.css' %}" rel="stylesheet">
+
+    <!-- Bootstrap Spinner Css -->
+    <link href="{% static 'plugins/jquery-spinner/css/bootstrap-spinner.css'%}" rel="stylesheet">
+
+    <!-- Bootstrap Tagsinput Css -->
+    <link href="{% static 'plugins/bootstrap-tagsinput/bootstrap-tagsinput.css'%}" rel="stylesheet">
+
+
+     <!-- Dropzone Css -->
+    <link href="{% static 'plugins/dropzone/dropzone.css'%}" rel="stylesheet">
+
+    <!-- Sweet Alert Css -->
+    <link href="{% static 'plugins/sweetalert/sweetalert.css' %}" rel="stylesheet" />
+
+
+    <!-- Bootstrap Select Css -->
+    <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css' %}" rel="stylesheet" />
+
+{% endblock %}
+{% block body %}
+<div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>Payment Form</h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
+                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
+                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <form id="form_validation" method="POST" enctype="multipart/form-data" novalidate="novalidate">
+                                {% csrf_token %}
+
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <label class="form-label">Receipt</label>
+                                        {% crispy_field form.receipt %}
+                                    </div>
+                                    {% if form.receipt.errors %}
+                                        {% for error in form.receipt.errors %}
+                                            <label id="Receipt-error" class="error" for="Receipt"><b>{{ error }}</b></label>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+
+
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <label class="form-label">Receipt Date</label>
+                                        {% crispy_field form.Receipt_Date %}
+                                    </div>
+                                    {% if form.Receipt_Date.errors %}
+                                        {% for error in form.Receipt_Date.errors %}
+                                            <label id="Receipt_Date-error" class="error" for="Receipt_Date"><b>{{ error }}</b></label>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <label class="form-label">payment_type</label>
+                                        {% crispy_field form.payment_type %}
+                                    </div>
+                                    {% if form.payment_type.errors %}
+                                        {% for error in form.payment_type.errors %}
+                                            <label id="payment_type-error" class="error" for="payment_type"><b>{{ error }}</b></label>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+
+                                <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <label class="form-label">Amount</label>
+                                            {% crispy_field form.Amount %}
+                                        </div>
+                                        {% if form.Amount %}
+                                            {% for error in form.Amount.errors %}
+                                                <label id="Amount-error" class="error" for="Amount"><b>{{ error }}</b></label>
+                                            {% endfor %}
+                                        {% endif %}
+                                </div>
+
+                                <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <label class="form-label">ch_no</label>
+                                            {% crispy_field form.ch_no %}
+                                        </div>
+                                        {% if form.ch_no.errors %}
+                                            {% for error in form.ch_no.errors %}
+                                                <label id="ch_no-error" class="error" for="ch_no"><b>{{ error }}</b></label>
+                                            {% endfor %}
+                                        {% endif %}
+                                </div>
+
+                                <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <label class="form-label">Bank_Name</label>
+                                            {% crispy_field form.Bank_Name  %}
+                                        </div>
+                                        {% if form.Bank_Name.errors %}
+                                            {% for error in form.Bank_Name.errors %}
+                                                <label id="Bank_Name-error" class="error" for="Bank_Name"><b>{{ error }}</b></label>
+                                            {% endfor %}
+                                        {% endif %}
+                                </div>
+
+                                <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <label class="form-label">Branch_Name</label>
+                                            {% crispy_field form.Branch_Name %}
+                                        </div>
+                                        {% if form.Branch_Name.errors %}
+                                            {% for error in form.Branch_Name.errors %}
+                                                <label id=" Branch_Name-error" class="error" for="Branch_Name"><b>{{ error }}</b></label>
+                                            {% endfor %}
+                                        {% endif %}
+                                </div>
+                                <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}
+{% block extra_js_lib %}
+     <!-- Jquery Validation Plugin Css -->
+    <script src="{% static 'plugins/jquery-validation/jquery.validate.js' %}"></script>
+
+    <!-- JQuery Steps Plugin Js -->
+    <script src="{% static 'plugins/jquery-steps/jquery.steps.js' %}"></script>
+
+    <!-- Sweet Alert Plugin Js -->
+    <script src="{% static 'plugins/sweetalert/sweetalert.min.js' %}"></script>
+
+    <!-- Custom Js -->
+    <script src="{% static 'js/pages/forms/form-validation.js' %}"></script>
+
+    <!-- Autosize Plugin Js -->
+    <script src="{% static 'plugins/autosize/autosize.js' %}"></script>
+
+    <!-- Moment Plugin Js -->
+    <script src="{% static 'plugins/momentjs/moment.js' %}"></script>
+
+    <!-- Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js' %}"></script>
+
+    <!-- Bootstrap Datepicker Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>
+
+    <!-- Custom Js -->
+    <script src="{% static 'js/pages/forms/basic-form-elements.js' %}"></script>
+
+    <!-- Bootstrap Tags Input Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-tagsinput/bootstrap-tagsinput.js'%}"></script>
+
+    <!-- noUISlider Plugin Js -->
+    <script src="{% static 'plugins/nouislider/nouislider.js'%}"></script>
+
+
+{% endblock %}

@@ -1,4 +1,4 @@
-{% extends "users/layout1.html" %}
+﻿{% extends "users/layout1.html" %}
 {% load crispy_forms_field %}
 {% load static  %}
 {% block extra_head_lib %}
@@ -11,7 +11,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Student Details
+                                Payment Details
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -33,46 +33,49 @@
                                     <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
                                     <thead>
                                         <tr role="row">
-                                            <th rowspan="1" colspan="1">Student </th>
-                                            <th rowspan="1" colspan="1">Date of admission</th>
-                                            <th rowspan="1" colspan="1">Course</th>
-                                            <th rowspan="1" colspan="1">Start Date</th>
-                                            <th rowspan="1" colspan="1">End Date</th>
-                                            <th rowspan="1" colspan="1">Status</th>
-
+                                            <th>Receipt</th>
+                                            <th>Receipt_Date</th>
+                                            <th>Amount</th>
+                                            <th>payment_type</th>
+                                            <th>ch_no</th>
+                                            <th>Bank_Name</th>
+                                            <th>Branch Name</th>
+                                            <th>Action</th>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th rowspan="1" colspan="1">Student </th>
-                                            <th rowspan="1" colspan="1">Date of admission</th>
-                                            <th rowspan="1" colspan="1">Course</th>
-                                            <th rowspan="1" colspan="1">Start Date</th>
-                                            <th rowspan="1" colspan="1">End Date</th>
-                                            <th rowspan="1" colspan="1">Status</th>
+                                            <th rowspan="1" colspan="1">Receipt</th>
+                                            <th rowspan="1" colspan="1">Receipt_Date</th>
+                                            <th rowspan="1" colspan="1">Amount</th>
+                                            <th rowspan="1" colspan="1">payment_type</th>
+                                            <th rowspan="1" colspan="1">ch_no</th>
+                                            <th rowspan="1" colspan="1">Bank Name</th>
+                                            <th rowspan="1" colspan="1">Branch Name</th>
+                                            <th rowspan="1" colspan="1">Action</th>
 
                                         </tr>
                                     </tfoot>
                                   <tbody>
-                                    {% for a in admission_list %}
+                                    {% for p in payment_list %}
                                         <tr>
-                                            <td>{{a.Student }}</td>
-                                            <td>{{a.Date_of_addmission}}</td>
-                                            <td>{{a.Course}}</td>
-                                            <td>{{a.Start_Date}}</td>
-                                            <td>{{a.End_Date}}</td>
-
+                                            <td>{{p.receipt }}</td>
+                                            <td>{{p.Receipt_Date }}</td>
+                                            <td>{{p.Amount }}</td>
+                                            <td>{{p.payment_type }}</td>
+                                            <td>{{p.ch_no }}</td>
+                                            <td>{{p.Bank_Name }}</td>
+                                            <td>{{p.Branch_Name }}</td>
                                             <td>
-                                                <a href="{% url 'admission-update' a.id %}">Update</a>/
-                                                <a href="{% url 'admission-delete' a.id %}">Delete</a>/
-                                                <a href="{% url 'admission-detail' a.id %}">View</a>
-
+                                                <a href="{% url 'payment-detail' p.id %}">View</a>/
+                                                <a href="{% url 'payment-update' p.id %}">Update</a>/
+                                                <a href="{% url 'payment-delete' p.id %}">Delete</a>
                                             </td>
-
 
                                         </tr>
                                    {% endfor %}
                                   </tbody>
                                 </table>
+
                             </div>
                         </div>
                     </div>
