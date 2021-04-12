@@ -35,8 +35,8 @@ class payment_info(models.Model):
     )
     payment_type = models.CharField(max_length=20,choices=choice)
     ch_no=models.IntegerField()
-    Bank_Name = models.CharField(max_length=55)
-    Branch_Name = models.CharField(max_length=55)
+    Bank_Name = models.CharField(max_length=55,blank=True)
+    Branch_Name = models.CharField(max_length=55,blank=True)
     admission=models.ForeignKey('admission.admission',on_delete=models.CASCADE,related_name='admission_info',default=1,blank=True)
 
     def __str__(self):
