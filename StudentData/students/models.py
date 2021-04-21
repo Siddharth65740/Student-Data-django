@@ -1,6 +1,5 @@
 from django.db import models
 from django.urls import reverse
-from bootstrap_datepicker_plus import DatePickerInput, TimePickerInput, DateTimePickerInput, MonthPickerInput, YearPickerInput
 # Create your models here.
 
 class student(models.Model):

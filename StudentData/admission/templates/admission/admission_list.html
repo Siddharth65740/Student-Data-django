@@ -38,7 +38,9 @@
                                             <th rowspan="1" colspan="1">Course</th>
                                             <th rowspan="1" colspan="1">Start Date</th>
                                             <th rowspan="1" colspan="1">End Date</th>
+                                            <th rowspan="1" colspan="1">Pending Fees</th>
                                             <th rowspan="1" colspan="1">Status</th>
+                                            <th rowspan="1" colspan="1">Add Payment</th>
 
                                     </thead>
                                     <tfoot>
@@ -48,7 +50,9 @@
                                             <th rowspan="1" colspan="1">Course</th>
                                             <th rowspan="1" colspan="1">Start Date</th>
                                             <th rowspan="1" colspan="1">End Date</th>
+                                            <th rowspan="1" colspan="1">Pending Fees</th>
                                             <th rowspan="1" colspan="1">Status</th>
+                                            <th rowspan="1" colspan="1">Add Payment</th>
 
                                         </tr>
                                     </tfoot>
@@ -60,15 +64,15 @@
                                             <td>{{a.Course}}</td>
                                             <td>{{a.Start_Date}}</td>
                                             <td>{{a.End_Date}}</td>
-
+                                            <td>{{a.Pending_fees}}</td>
                                             <td>
                                                 <a href="{% url 'admission-update' a.id %}">Update</a>/
                                                 <a href="{% url 'admission-delete' a.id %}">Delete</a>/
                                                 <a href="{% url 'admission-detail' a.id %}">View</a>
-
                                             </td>
-
-
+                                            <td>
+                                                     <a href="{% url 'payment-create'  %}">Add Payment</a>
+                                            </td>
                                         </tr>
                                    {% endfor %}
                                   </tbody>

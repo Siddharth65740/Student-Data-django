@@ -26,6 +26,7 @@ urlpatterns = [
     path('admission/',include('admission.urls')),
     path('payment/',include('payment.urls')),
     path('student/',include('students.urls')),
-    path('login/',auth_views.LoginView.as_view(template_name="users/sign-in.html"),name='login')
+    path('login/',auth_views.LoginView.as_view(template_name="users/sign-in.html"),name='login'),
+    path('logout/',auth_views.LogoutView.as_view(template_name="users/sign-up.html"),name='logout')
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

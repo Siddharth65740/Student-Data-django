@@ -38,8 +38,7 @@
 
 {% endblock %}
 {% block body %}
-
-            <div class="row clearfix">
+           <div class="row clearfix">
                 <div class="col-xs-12 col-sm-3">
                     <div class="card profile-card">
                         <div class="profile-header">&nbsp;</div>
@@ -47,9 +46,9 @@
                             <div class="image-area">
                                 <img src="{% static 'images/user.png'%}" alt="AdminBSB - Profile Image" height="100px" />
                             </div>
-                            {% for p in payment_list %}
+                            {% for c in course %}
                             <div class="content-area">
-                                <h3>{{p.receipt}}</h3>
+                                <h3>{{c.name}}</h3>
 
                             </div>
                             {% endfor %}
@@ -57,17 +56,12 @@
                         <div class="profile-footer">
                             <ul>
                                 <li>
-                                    <span>Receipt<br>Id</span>
-                                    <span>{{payment_info.receipt}}</span>
+                                    <span>COURSE<br>NAME</span>
+                                    <span>{{course_master.name}}</span>
                                 </li>
                                 <li>
-                                    <span>First Name</span>
-                                    <span>{{payment_info.admission.Student.first_name}}</span>
-                                </li>
-
-                                <li>
-                                    <span>Receipt<br>Date</span>
-                                    <span>{{payment_info.Receipt_Date}}</span>
+                                    <span>DURATION</span>
+                                    <span>{{course_master.duration}}</span>
                                 </li>
 
 
@@ -84,71 +78,58 @@
                             <div>
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li role="presentation"><a href="#profile_settings" aria-controls="settings" role="tab" data-toggle="tab">Profile</a></li>
+
                                 </ul>
 
                                 <div class="tab-content">
 
                                     <div role="tabpanel" class="tab-pane fade in" id="profile_settings">
                                         <form class="form-horizontal">
-
                                             <div class="form-group">
-                                                <label for="InputExperience" class="col-sm-2 control-label">Amount</label>
+                                                <label for="InputExperience" class="col-sm-2 control-label">Description</label>
 
                                                 <div class="col-sm-10">
                                                     <div class="form-line">
-                                                        {{payment_info.Amount}}
+                                                        {{course_master.description}}
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="InputExperience" class="col-sm-2 control-label">Payment Type</label>
+                                                <label for="InputSkills" class="col-sm-2 control-label">Fees</label>
 
                                                 <div class="col-sm-10">
                                                     <div class="form-line">
-                                                        {{payment_info.payment_type}}
+                                                        {{course_master.fees}}
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="InputSkills" class="col-sm-2 control-label">Cheque Number</label>
-
-                                                <div class="col-sm-10">
-                                                    <div class="form-line">
-                                                        {{payment_info.ch_no}}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="InputSkills" class="col-sm-2 control-label">Bank Name</label>
-
-                                            <div class="col-sm-10">
-                                                   <div class="form-line">
-                                                    {{payment_info.Bank_Name }}
-                                                    </div>
-                                            </div>
-
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label for="InputSkills" class="col-sm-2 control-label">Branch Name</label>
+                                                <label for="InputSkills" class="col-sm-2 control-label">Status</label>
 
                                                 <div class="col-sm-10">
                                                    <div class="form-line">
-                                                    {{payment_info.Branch_Name }}
+                                                    {{course_master.status }}
                                                     </div>
                                                 </div>
+
+
                                             </div>
 
 
+                                            <div class="form-group">
+                                                <label for="InputSkills" class="col-sm-2 control-label">User</label>
+
+                                                <div class="col-sm-10">
+                                                   <div class="form-line">
+                                                    {{course_master.user}}
+                                                    </div>
+                                                </div>
+                                            </div>
 
                                         </form>
                                     </div>
 
 
-
-
-                                    </div>
                                 </div>
                             </div>
                         </div>

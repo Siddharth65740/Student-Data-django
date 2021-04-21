@@ -9,25 +9,26 @@ from django.contrib.auth.models import models
 
 # Create your views here.
 
-class create_view(CreateView):
+class create_view(LoginRequiredMixin,CreateView):
     model =admission
     fields = '__all__'
 
 
-class admissionListView(ListView):
+class admissionListView(LoginRequiredMixin,ListView):
     model=admission
     fields ="__all__"
     context_object_name = "admission_list"
 
-class admissionUpdateView(UpdateView):
+class admissionUpdateView(LoginRequiredMixin,UpdateView):
     model = admission
     fields = '__all__'
 
-class detail_student(DetailView):
+class detail_student(LoginRequiredMixin,DetailView):
     model = admission
 
 
-class delete_student(DeleteView):
+
+class delete_student(LoginRequiredMixin,DeleteView):
     model = admission
     success_url = '/admission/list'
 
