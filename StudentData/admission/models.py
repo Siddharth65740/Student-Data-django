@@ -25,7 +25,7 @@ class admission(models.Model):
     Pending_fees=models.CharField(max_length=20)
 
     def __str__(self):
-        return f"{self.id} - {self.Student} - {self.Course}"
+        return f"           {self.id} - {self.Student} - {self.Course} - {self.id}"
 
     def get_absolute_url(self):
         return reverse('admission-list')

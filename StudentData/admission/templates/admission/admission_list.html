@@ -33,6 +33,7 @@
                                     <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
                                     <thead>
                                         <tr role="row">
+                                            <th> ID</th>
                                             <th rowspan="1" colspan="1">Student </th>
                                             <th rowspan="1" colspan="1">Date of admission</th>
                                             <th rowspan="1" colspan="1">Course</th>
@@ -40,7 +41,6 @@
                                             <th rowspan="1" colspan="1">End Date</th>
                                             <th rowspan="1" colspan="1">Pending Fees</th>
                                             <th rowspan="1" colspan="1">Status</th>
-                                            <th rowspan="1" colspan="1">Add Payment</th>
 
                                     </thead>
                                     <tfoot>
@@ -52,13 +52,13 @@
                                             <th rowspan="1" colspan="1">End Date</th>
                                             <th rowspan="1" colspan="1">Pending Fees</th>
                                             <th rowspan="1" colspan="1">Status</th>
-                                            <th rowspan="1" colspan="1">Add Payment</th>
 
                                         </tr>
                                     </tfoot>
                                   <tbody>
                                     {% for a in admission_list %}
                                         <tr>
+                                            <td> {{a.id}}</td>
                                             <td>{{a.Student }}</td>
                                             <td>{{a.Date_of_addmission}}</td>
                                             <td>{{a.Course}}</td>
@@ -70,9 +70,7 @@
                                                 <a href="{% url 'admission-delete' a.id %}">Delete</a>/
                                                 <a href="{% url 'admission-detail' a.id %}">View</a>
                                             </td>
-                                            <td>
-                                                     <a href="{% url 'payment-create'  %}">Add Payment</a>
-                                            </td>
+
                                         </tr>
                                    {% endfor %}
                                   </tbody>

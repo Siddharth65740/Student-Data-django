@@ -17,6 +17,7 @@
      <!-- Colorpicker Css -->
     <link href="{%static 'plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css'%}" rel="stylesheet" />
 
+
     <!-- Multi Select Css -->
     <link href="{% static 'plugins/multi-select/css/multi-select.css' %}" rel="stylesheet">
 
@@ -66,7 +67,7 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <label class="form-label">Admission</label>
-                                        {% crispy_field form.admission %}
+                                        {% crispy_field form.admission 'data-live-search' 'true' %}
                                     </div>
                                     {% if form.admission.errors %}
                                         {% for error in form.admission.errors %}
@@ -223,6 +224,9 @@
 
     <!-- Custom Js -->
     <script src="{% static 'js/pages/forms/basic-form-elements.js' %}"></script>
+
+     <!-- Select Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-select/js/bootstrap-select.js' %}"></script>
 
     <!-- Bootstrap Tags Input Plugin Js -->
     <script src="{% static 'plugins/bootstrap-tagsinput/bootstrap-tagsinput.js'%}"></script>

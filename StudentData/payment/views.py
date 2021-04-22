@@ -34,3 +34,6 @@ class delete_payment(LoginRequiredMixin,DeleteView):
     success_url = '/payment/list'
 
 
+#def student_payment(request,admision_id):
+#    return redirect('payment-create',**kwargs={''})
+
