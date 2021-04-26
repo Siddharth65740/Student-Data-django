@@ -13,18 +13,7 @@
                             <h2>
                                 Student Details
                             </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -41,10 +30,12 @@
                                             <th rowspan="1" colspan="1">End Date</th>
                                             <th rowspan="1" colspan="1">Pending Fees</th>
                                             <th rowspan="1" colspan="1">Status</th>
+                                            <th rowspan="1" colspan="1">Action</th>
 
                                     </thead>
                                     <tfoot>
                                         <tr>
+                                            <th> ID</th>
                                             <th rowspan="1" colspan="1">Student </th>
                                             <th rowspan="1" colspan="1">Date of admission</th>
                                             <th rowspan="1" colspan="1">Course</th>
@@ -52,6 +43,7 @@
                                             <th rowspan="1" colspan="1">End Date</th>
                                             <th rowspan="1" colspan="1">Pending Fees</th>
                                             <th rowspan="1" colspan="1">Status</th>
+                                            <th rowspan="1" colspan="1">Action</th>
 
                                         </tr>
                                     </tfoot>
@@ -65,6 +57,8 @@
                                             <td>{{a.Start_Date}}</td>
                                             <td>{{a.End_Date}}</td>
                                             <td>{{a.Pending_fees}}</td>
+                                            <td>{{a.Status}}</td>
+
                                             <td>
                                                 <a href="{% url 'admission-update' a.id %}">Update</a>/
                                                 <a href="{% url 'admission-delete' a.id %}">Delete</a>/

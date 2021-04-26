@@ -1,23 +1,28 @@
 {% extends 'users/layout1.html' %}
 {% load static %}
 {% load crispy_forms_field %}
-
-{% block extra_head_css_lib %}
+{% block extra_css_lib %}
 
     <!-- Bootstrap Material Datetime Picker Css -->
     <link href="{% static 'plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css' %}" rel="stylesheet" />
-
     <!-- Bootstrap DatePicker Css -->
     <link href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.css' %}" rel="stylesheet" />
-
     <!-- Wait Me Css -->
     <link href="{% static 'plugins/waitme/waitMe.css' %}" rel="stylesheet" />
-
     <!-- Sweet Alert Css -->
     <link href="{% static 'plugins/sweetalert/sweetalert.css' %}" rel="stylesheet" />
-
     <!-- Bootstrap Select Css -->
     <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css' %}" rel="stylesheet" />
+     <!-- Colorpicker Css -->
+    <link href="{% static 'plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css'%}" rel="stylesheet" />
+    <!-- Multi Select Css -->
+    <link href="{% static 'plugins/multi-select/css/multi-select.css' %}" rel="stylesheet">
+    <!-- Bootstrap Spinner Css -->
+    <link href="{% static 'plugins/jquery-spinner/css/bootstrap-spinner.css'%}" rel="stylesheet">
+    <!-- Bootstrap Tagsinput Css -->
+    <link href="{% static 'plugins/bootstrap-tagsinput/bootstrap-tagsinput.css'%}" rel="stylesheet">
+     <!-- Dropzone Css -->
+    <link href="{% static 'plugins/dropzone/dropzone.css'%}" rel="stylesheet">
 
 {% endblock %}
 {% block body %}
@@ -312,6 +317,12 @@
 
     <!-- Bootstrap Datepicker Plugin Js -->
     <script src="{% static 'plugins/bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>
+
+     <!-- Bootstrap Tags Input Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-tagsinput/bootstrap-tagsinput.js'%}"></script>
+
+    <!-- noUISlider Plugin Js -->
+    <script src="{% static 'plugins/nouislider/nouislider.js'%}"></script>
 
     <!-- Custom Js -->
     <script src="{% static 'js/pages/forms/basic-form-elements.js' %}"></script>

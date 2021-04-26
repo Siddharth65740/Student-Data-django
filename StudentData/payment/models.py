@@ -34,7 +34,7 @@ class payment_info(models.Model):
         ('Cheque','Cheque')
     )
     payment_type = models.CharField(max_length=20,choices=choice)
-    ch_no=models.IntegerField()
+    ch_no=models.IntegerField(blank=True,null=True,default=0)
     Bank_Name = models.CharField(max_length=55,blank=True)
     Branch_Name = models.CharField(max_length=55,blank=True)
     admission=models.ForeignKey('admission.admission',on_delete=models.CASCADE,related_name='admission_info',default=1,blank=True)
