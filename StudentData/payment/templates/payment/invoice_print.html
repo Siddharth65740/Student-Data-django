@@ -1,33 +1,23 @@
-{% extends 'users/layout1.html' %}
+
+<!DOCTYPE html>
 {% load static %}
-{% load crispy_forms_field %}
-{% block extra_css_lib %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Invoice Print</title>
 
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css'%}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css'%}">
+</head>
+<body>
 
-    <!-- Bootstrap Material Datetime Picker Css -->
-    <link href="{% static 'plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css' %}" rel="stylesheet" />
-    <!-- Bootstrap DatePicker Css -->
-    <link href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.css' %}" rel="stylesheet" />
-    <!-- Wait Me Css -->
-    <link href="{% static 'plugins/waitme/waitMe.css' %}" rel="stylesheet" />
-     <!-- Colorpicker Css -->
-    <link href="{%static 'plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css'%}" rel="stylesheet" />
-    <!-- Multi Select Css -->
-    <link href="{% static 'plugins/multi-select/css/multi-select.css' %}" rel="stylesheet">
-    <!-- Bootstrap Spinner Css -->
-    <link href="{% static 'plugins/jquery-spinner/css/bootstrap-spinner.css'%}" rel="stylesheet">
-    <!-- Bootstrap Tagsinput Css -->
-    <link href="{% static 'plugins/bootstrap-tagsinput/bootstrap-tagsinput.css'%}" rel="stylesheet">
-     <!-- Dropzone Css -->
-    <link href="{% static 'plugins/dropzone/dropzone.css'%}" rel="stylesheet">
-    <!-- Sweet Alert Css -->
-    <link href="{% static 'plugins/sweetalert/sweetalert.css' %}" rel="stylesheet" />
-    <!-- Bootstrap Select Css -->
-    <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css' %}" rel="stylesheet" />
-{% endblock %}
-{% block body %}
 <div class="dt-buttons">
-                    <button onclick="print_current_page()"><a class="dt-button buttons-print" tabindex="0" aria-controls="DataTables_Table_1" href="#"><span>Print</span></a></button>
+<!--                    <button onclick="print_current_page()"><a class="dt-button buttons-print" tabindex="0" aria-controls="DataTables_Table_1" href="#"><span>Print</span></a></button>-->
                 </div>
     <div class="invoice p-3 mb-3">
               <!-- title row -->
@@ -144,46 +134,9 @@
 
 
                 </div>
+<script>
+    window.addEventListener("load", window.print());
 
-
-{% endblock %}
-{% block extra_js_lib %}
-
-     <!-- Jquery Validation Plugin Css -->
-    <script src="{% static 'plugins/jquery-validation/jquery.validate.js' %}"></script>
-
-    <!-- JQuery Steps Plugin Js -->
-    <script src="{% static 'plugins/jquery-steps/jquery.steps.js' %}"></script>
-
-    <!-- Sweet Alert Plugin Js -->
-    <script src="{% static 'plugins/sweetalert/sweetalert.min.js' %}"></script>
-
-    <!-- Custom Js -->
-    <script src="{% static 'js/pages/forms/form-validation.js' %}"></script>
-
-    <!-- Autosize Plugin Js -->
-    <script src="{% static 'plugins/autosize/autosize.js' %}"></script>
-
-    <!-- Moment Plugin Js -->
-    <script src="{% static 'plugins/momentjs/moment.js' %}"></script>
-
-    <!-- Bootstrap Material Datetime Picker Plugin Js -->
-    <script src="{% static 'plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js' %}"></script>
-
-    <!-- Bootstrap Datepicker Plugin Js -->
-    <script src="{% static 'plugins/bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>
-
-    <!-- Custom Js -->
-    <script src="{% static 'js/pages/forms/basic-form-elements.js' %}"></script>
-
-     <!-- Select Plugin Js -->
-    <script src="{% static 'plugins/bootstrap-select/js/bootstrap-select.js' %}"></script>
-
-    <!-- Bootstrap Tags Input Plugin Js -->
-    <script src="{% static 'plugins/bootstrap-tagsinput/bootstrap-tagsinput.js'%}"></script>
-
-    <!-- noUISlider Plugin Js -->
-    <script src="{% static 'plugins/nouislider/nouislider.js'%}"></script>
-
-
-{% endblock %}
+</script>
+</body>
+</html>
