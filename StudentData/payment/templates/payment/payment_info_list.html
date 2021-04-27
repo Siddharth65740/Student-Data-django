@@ -14,16 +14,6 @@
                                 Payment Details
                             </h2>
                             <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
-                                    </ul>
-                                </li>
                             </ul>
                         </div>
                         <div class="body">
@@ -66,7 +56,7 @@
                                             <td>{{p.Bank_Name }}</td>
                                             <td>{{p.Branch_Name }}</td>
                                             <td>
-                                                <a href="{% url 'payment-detail' p.id %}">View</a>/
+                                                <a href="{% url 'payment-detail' p.id %}" target="_blank">View</a>/
                                                 <a href="{% url 'payment-update' p.id %}">Update</a>/
                                                 <a href="{% url 'payment-delete' p.id %}">Delete</a>
                                             </td>
