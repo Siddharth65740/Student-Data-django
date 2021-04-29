@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 from .models import admission
 from django.forms import MultiWidget
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView
-from django.contrib.auth.models import models
+
 
 # Create your views here.
 

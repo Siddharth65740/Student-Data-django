@@ -21,7 +21,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('users/',include('users.urls')),
+    path('',include('users.urls')),
     path('course/',include('course.urls')),
     path('admission/',include('admission.urls')),
     path('payment/',include('payment.urls')),

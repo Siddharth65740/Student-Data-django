@@ -256,4 +256,25 @@
     $('#id_End_Date').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
 </script>
 
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+
+        document.querySelector("#id_Course").onchange=function(){
+            let value=document.querySelector("#id_Course").value;
+             //alert(`on change called ${value} `);
+            fetch(`http://127.0.0.1:8000/course/get_fees/${value}`)
+            .then( function(response){return  response.json();})
+            .then(function(data){
+               console.log(data.fees);
+               document.querySelector("#id_Fees").value=data.fees;
+               document.querySelector("#id_Pending_fees").value=data.fees;
+
+            });
+
+        }
+
+    });
+</script>
+
+
 {% endblock %}
