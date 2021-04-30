@@ -26,8 +26,6 @@ class admissionUpdateView(LoginRequiredMixin,UpdateView):
 class detail_student(LoginRequiredMixin,DetailView):
     model = admission
 
-
-
 class delete_student(LoginRequiredMixin,DeleteView):
     model = admission
     success_url = '/admission/list'

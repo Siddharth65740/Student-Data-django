@@ -12,6 +12,14 @@ class create_view(LoginRequiredMixin,CreateView):
     model = payment_info
     fields = '__all__'
 
+    def form_valid(self, form):
+        self.object = form.save()
+        self.object.admission.Pending_fees=int(self.object.admission.Pending_fees) -  self.object.Amount
+        self.object.admission.save()
+        # do something with self.object
+        # remember the import: from django.http import HttpResponseRedirect
+        return HttpResponseRedirect(self.get_success_url())
+
 class paymentListView(LoginRequiredMixin,ListView):
     model= payment_info
     fields ="__all__"
