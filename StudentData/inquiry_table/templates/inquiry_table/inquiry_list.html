@@ -1,0 +1,91 @@
+{% extends "users/layout1.html" %}
+{% load crispy_forms_field %}
+{% load static  %}
+{% block extra_head_lib %}
+   <!-- JQuery DataTable Css -->
+    <link href="{% static 'plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css'%}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+  <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Inquiry Details
+                            </h2>
+
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+
+                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                                    <thead>
+                                        <tr role="row">
+                                           <th rowspan="1" colspan="1">Inquiry</th>
+                                            <th rowspan="1" colspan="1">Date</th>
+                                            <th rowspan="1" colspan="1">First Name</th>
+                                            <th rowspan="1" colspan="1">Second Name</th>
+                                            <th rowspan="1" colspan="1">State</th>
+                                            <th rowspan="1" colspan="1">Area</th>
+                                            <th rowspan="1" colspan="1">City</th>
+
+                                            <th rowspan="1" colspan="1">Action</th>
+
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th rowspan="1" colspan="1">Inquiry</th>
+                                            <th rowspan="1" colspan="1">Date</th>
+                                            <th rowspan="1" colspan="1">First Name</th>
+                                            <th rowspan="1" colspan="1">Second Name</th>
+                                            <th rowspan="1" colspan="1">State</th>
+                                            <th rowspan="1" colspan="1">Area</th>
+                                            <th rowspan="1" colspan="1">City</th>
+
+                                            <th rowspan="1" colspan="1">Action</th>
+
+                                        </tr>
+                                    </tfoot>
+                                  <tbody>
+                                    {% for i in inquiry_list %}
+                                        <tr>
+                                            <td>{{i.inquiry}}</td>
+                                            <td>{{i.date }}</td>
+                                            <td>{{i.first_name}}</td>
+                                            <td>{{i.second_name}}</td>
+                                            <td>{{i.state_name}}</td>
+                                            <td>{{i.area_name}}</td>
+                                            <td>{{i.city_name}}</td>
+
+                                            <td>
+                                                <a href="{% url 'inquiry-update' i.id %}">Update</a>/
+                                                <a href="{% url 'inquiry-view' i.id %}">View</a>
+                                            </td>
+
+                                        </tr>
+                                   {% endfor %}
+                                  </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  </div>
+
+{% endblock %}
+{% block extra_js_lib %}
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="{% static 'plugins/jquery-datatable/jquery.dataTables.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/buttons.flash.min.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/jszip.min.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/pdfmake.min.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/vfs_fonts.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/buttons.html5.min.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/buttons.print.min.js'%}"></script>
+    <script src="{% static 'js/pages/tables/jquery-datatable.js'%}"></script>
+
+{% endblock %}

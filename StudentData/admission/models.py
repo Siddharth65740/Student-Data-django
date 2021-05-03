@@ -8,8 +8,8 @@ class admission(models.Model):
     Student=models.ForeignKey('students.student',on_delete=models.CASCADE,related_name="admission",default=1,blank=True)
     Date_of_addmission=models.DateField(null=True, blank=True)
     Course=models.ForeignKey('course.course_master',on_delete=models.CASCADE,related_name="admission",default=1,blank=True)
-    Start_Time=models.TimeField(auto_now=False, auto_now_add=False)
-    End_Time=models.TimeField(auto_now=False, auto_now_add=False)
+    Start_Time=models.TimeField()
+    End_Time=models.TimeField()
     Start_Date=models.DateField(null=True, blank=True)
     End_Date=models.DateField(null=True, blank=True)
     photo_copy=models.FileField(upload_to='media/',blank=True)
@@ -23,6 +23,8 @@ class admission(models.Model):
     No_of_Days=models.IntegerField()
     Remarks=models.CharField(max_length=22)
     Pending_fees=models.CharField(max_length=20)
+    inquiry=models.ForeignKey('inquiry_table.inquiry',on_delete=models.CASCADE,related_name='admission',default=1)
+
 
     def __str__(self):
         return f"           {self.Student} - {self.Course} - {self.id}"

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'bootstrap_datepicker_plus',
     'students',
     'payment',
+    'inquiry_table',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',

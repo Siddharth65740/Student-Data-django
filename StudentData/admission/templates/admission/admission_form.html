@@ -64,9 +64,9 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <label class="form-label">Date of Admission</label>
-                                        {% crispy_field form.Date_of_addmission %}
+                                        {% crispy_field form.Date_of_addmission 'class' 'datepicker' %}
                                     </div>
-                                    {% if form.Date_of_addmission.errors %}
+                                    {% if form.Date_of_addmission.errors  %}
                                         {% for error in form.Date_of_addmission.errors %}
                                             <label id="admission-error" class="error" for="admission"><b>{{ error }}</b></label>
                                         {% endfor %}
@@ -100,6 +100,7 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <label class="form-label"> End_Time</label>
+
                                         {% crispy_field form.End_Time 'class' 'timepicker' %}
                                     </div>
                                     {% if form.End_Time.errors %}
@@ -209,6 +210,23 @@
                                     {% endif %}
                                 </div>
 
+                                 <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <p>
+                                          <b>Inquiry</b>
+                                        </p>
+                                        {% crispy_field form.inquiry  %}
+                                    </div>
+                                    {% if form.inquiry.errors %}
+                                        {% for error in form.inquiry.errors %}
+                                            <label  class="error" ><b>{{ error }}</b></label>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+
+
+
+
 
                                 <button class="btn btn-primary waves-effect" type="submit">SUBMIT</button>
                             </form>
@@ -254,6 +272,8 @@
 <script>
     $('#id_Start_Date').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
     $('#id_End_Date').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
+    $('#id_Date_of_addmission').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
+
 </script>
 
 <script>
