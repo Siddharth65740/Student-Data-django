@@ -1,0 +1,84 @@
+{% extends "users/layout1.html" %}
+{% load crispy_forms_field %}
+{% load static  %}
+{% block extra_css_lib %}
+
+{% endblock %}
+{% block body %}
+      <!-- Bar Chart -->
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>BAR CHART</h2>
+                            <ul class="header-dropdown m-r--5">
+
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; inset: 0px;"></iframe>
+                            <canvas id="bar_chart" height="260" width="521" style="display: block; width: 521px; height: 260px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Bar Chart -->
+{% endblock %}
+{% block extra_js_lib %}
+    <!-- Custom Js -->
+    <script src="{% static 'js/admin.js'%}"></script>
+
+    <!-- Demo Js -->
+    <script src="{% static 'js/demo.js'%}"></script>
+
+    <!-- Chart Plugins Js -->
+    <script src="{% static 'plugins/chartjs/Chart.bundle.js' %}"></script>
+
+    <!-- Custom Js -->
+    <script src="{% static 'js/admin.js' %}"></script>
+    <script src="{% static 'js/pages/charts/chartjs.js'%}"></script>
+
+<script>
+$(function () {
+
+        console.log("in barchart condition");
+        fetch("http://127.0.0.1:8000/course/get_chart_Data").then(
+            function(response){ return response.json();}
+
+        )
+        .then(function(data){
+                console.log("data:",data);
+                console.log("course :",data.course);
+                console.log("dur :",data.dur);
+                new Chart(document.getElementById("bar_chart").getContext("2d"), {
+
+                    type: 'bar',
+                    data: {
+                        labels: data.course,
+                        datasets: [{
+                            label: "My First dataset",
+                            data:data.dur,
+                            backgroundColor: 'rgba(0, 188, 212, 0.8)'
+                        }, /*{
+                        label: "My Second dataset",
+                        data: [28, 48, 40, 19, 86, 27, 90],
+                        backgroundColor: 'rgba(233, 30, 99, 0.8)'
+                    }*/]
+                    },
+                    options: {
+                        responsive: true,
+                        legend: false
+                    }
+                }
+          //console.log("inside config");
+          // return config; })
+    );
+
+});
+});
+
+</script>
+
+
+
+
+
+{% endblock %}

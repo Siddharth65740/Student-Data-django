@@ -24,3 +24,7 @@ class update_view(LoginRequiredMixin,UpdateView):
 
 class detail_view(LoginRequiredMixin,DetailView):
     model = inquiry
+
+class delete_inquiry(LoginRequiredMixin,DeleteView):
+    model = inquiry
+    success_url = '/inquiry/list'

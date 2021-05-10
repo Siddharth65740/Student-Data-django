@@ -1,8 +1,8 @@
 $(function () {
-    new Chart(document.getElementById("line_chart").getContext("2d"), getChartJs('line'));
-    new Chart(document.getElementById("bar_chart").getContext("2d"), getChartJs('bar'));
-    new Chart(document.getElementById("radar_chart").getContext("2d"), getChartJs('radar'));
-    new Chart(document.getElementById("pie_chart").getContext("2d"), getChartJs('pie'));
+   // new Chart(document.getElementById("line_chart").getContext("2d"), getChartJs('line'));
+   // new Chart(document.getElementById("bar_chart").getContext("2d"), getChartJs('bar'));
+    //new Chart(document.getElementById("radar_chart").getContext("2d"), getChartJs('radar'));
+    //new Chart(document.getElementById("pie_chart").getContext("2d"), getChartJs('pie'));
 });
 
 function getChartJs(type) {
@@ -38,25 +38,35 @@ function getChartJs(type) {
         }
     }
     else if (type === 'bar') {
-        config = {
+        console.log("in barchart condition");
+        fetch("http://127.0.0.1:8000/course/get_chart_Data").then(
+            function(response){ return response.json();}
+
+        )
+            .then(function(data){
+                console.log("data:",data);
+                config = {
             type: 'bar',
             data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                labels: data.course,
                 datasets: [{
                     label: "My First dataset",
-                    data: [65, 59, 80, 81, 56, 55, 40],
+                    data: data.dur,
                     backgroundColor: 'rgba(0, 188, 212, 0.8)'
-                }, {
+                }, /*{
                         label: "My Second dataset",
                         data: [28, 48, 40, 19, 86, 27, 90],
                         backgroundColor: 'rgba(233, 30, 99, 0.8)'
-                    }]
+                    }*/]
             },
             options: {
                 responsive: true,
                 legend: false
             }
         }
+          console.log("inside config");
+           return config; })
+        console.log("outside config");
     }
     else if (type === 'radar') {
         config = {

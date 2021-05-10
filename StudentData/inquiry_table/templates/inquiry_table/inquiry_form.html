@@ -247,7 +247,7 @@
                                         <p>
                                           <b>demo_lect_date</b>
                                         </p>
-                                        {% crispy_field form.demo_lect_date %}
+                                        {% crispy_field form.demo_lect_date  'class' 'datepicker' 'id' 'id_demo_lect_date'%}
                                     </div>
                                     {% if form.demo_lect_date.errors %}
                                         {% for error in form.demo_lect_date.errors %}
@@ -261,7 +261,7 @@
                                         <p>
                                           <b>demo_lect_time</b>
                                         </p>
-                                        {% crispy_field form.demo_lect_time %}
+                                        {% crispy_field form.demo_lect_time 'class' 'timepicker' 'id' 'id_demo_lect_time' %}
                                     </div>
                                     {% if form.demo_lect_time.errors %}
                                         {% for error in form.demo_lect_time.errors %}
@@ -314,5 +314,6 @@
 
 <script>
     $('#id_date').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
+    $('#id_demo_lect_date').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
 </script>
 {% endblock %}

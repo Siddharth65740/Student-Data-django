@@ -234,58 +234,7 @@
     <section class="content">
         <div class="container-fluid">
             {% block body%}
-               <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>BAR CHART</h2>
-                            <ul class="header-dropdown m-r--5">
 
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <div id="bar_chart" class="flot-chart" style="padding: 0px; position: relative;">
-                                <canvas class="flot-base" width="275" height="320" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 275px; height: 320px;">
-
-                                </canvas>
-                                <div class="flot-text" style="position: absolute; inset: 0px; font-size: smaller; color: rgb(83,84,28);">
-                                    <div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; inset: 0px; display: block;">
-                                        <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 56px; top: 303px; left: 16px; text-align: center;">0
-                                        </div>
-                                        <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 35px; top: 303px; left: 62px; text-align: center;">2
-                                        </div>
-                                        <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 35px; top: 303px; left: 109px; text-align: center;">4
-                                        </div>
-                                        <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 35px; top: 303px; left: 156px; text-align: center;">6
-                                        </div>
-                                        <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 35px; top: 303px; left: 203px; text-align: center;">8
-                                        </div>
-                                        <div class="flot-tick-label tickLabel" style="position: absolute; max-width: 56px; top: 303px; left: 246px; text-align: center;">10
-                                        </div>
-                                    </div>
-                                    <div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; inset: 0px; display: block;">
-                                        <div class="flot-tick-label tickLabel" style="position: absolute; top: 290px; left: 7px; text-align: right;">0
-                                        </div>
-                                        <div class="flot-tick-label tickLabel" style="position: absolute; top: 242px; left: 7px; text-align: right;">5
-                                        </div>
-                                        <div class="flot-tick-label tickLabel" style="position: absolute; top: 193px; left: 1px; text-align: right;">10
-                                        </div>
-                                        <div class="flot-tick-label tickLabel" style="position: absolute; top: 145px; left: 1px; text-align: right;">15
-                                        </div>
-                                        <div class="flot-tick-label tickLabel" style="position: absolute; top: 97px; left: 1px; text-align: right;">20
-                                        </div>
-                                        <div class="flot-tick-label tickLabel" style="position: absolute; top: 48px; left: 1px; text-align: right;">25
-                                        </div>
-                                        <div class="flot-tick-label tickLabel" style="position: absolute; top: 0px; left: 1px; text-align: right;">30
-                                        </div>
-                                    </div>
-                                </div>
-                                <canvas class="flot-overlay" width="275" height="320" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 275px; height: 320px;">
-
-                                </canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             {% endblock %}
         </div>
     </section>
@@ -307,21 +256,13 @@
 
     <!-- Custom Js -->
     <script src="{% static 'js/admin.js'%}"></script>
-    <script src="{% static 'js/pages/charts/chartjs.js'%}"></script>
-    <script src="{% static 'js/pages/charts/flot.js'%}"></script>
+
 
     <!-- Demo Js -->
     <script src="{% static 'js/demo.js'%}"></script>
 
-    <!-- Chart Plugins Js -->
-    <script src="{% static 'plugins/chartjs/Chart.bundle.js'%}"></script>
 
-    <!-- Flot Chart Plugins Js -->
-    <script src="{% static 'plugins/flot-charts/jquery.flot.js'%}"></script>
-    <script src="{% static 'plugins/flot-charts/jquery.flot.resize.js'%}"></script>
-    <script src="{% static 'plugins/flot-charts/jquery.flot.pie.js'%}"></script>
-    <script src="{% static 'plugins/flot-charts/jquery.flot.categories.js'%}"></script>
-    <script src="{% static 'plugins/flot-charts/jquery.flot.time.js'%}"></script>
+
 
 
 {% block extra_js_lib %}

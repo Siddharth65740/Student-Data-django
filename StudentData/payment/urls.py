@@ -6,5 +6,6 @@ urlpatterns=[
     path("list/",paymentListView.as_view(),name="payment-list"),
     path("<int:pk>/update",paymentUpdateView.as_view(), name="payment-update"),
     path("detail/<int:pk>",detail_payment.as_view(),name="payment-detail"),
-    path("delete/<int:pk>",delete_payment.as_view(), name="payment-delete")
+    path("delete/<int:pk>",delete_payment.as_view(), name="payment-delete"),
+
 ]

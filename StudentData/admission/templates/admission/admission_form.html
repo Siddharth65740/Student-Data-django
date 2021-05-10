@@ -4,26 +4,42 @@
 
 {% block extra_css_lib %}
 
-    <!-- Bootstrap Material Datetime Picker Css -->
-    <link href="{% static 'plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css' %}" rel="stylesheet" />
-    <!-- Bootstrap DatePicker Css -->
-    <link href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.css' %}" rel="stylesheet" />
-    <!-- Wait Me Css -->
-    <link href="{% static 'plugins/waitme/waitMe.css' %}" rel="stylesheet" />
-     <!-- Colorpicker Css -->
-    <link href="{% static 'plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css'%}" rel="stylesheet" />
-    <!-- Multi Select Css -->
-    <link href="{% static 'plugins/multi-select/css/multi-select.css' %}" rel="stylesheet">
-    <!-- Bootstrap Spinner Css -->
-    <link href="{% static 'plugins/jquery-spinner/css/bootstrap-spinner.css'%}" rel="stylesheet">
-    <!-- Bootstrap Tagsinput Css -->
-    <link href="{% static 'plugins/bootstrap-tagsinput/bootstrap-tagsinput.css'%}" rel="stylesheet">
-     <!-- Dropzone Css -->
-    <link href="{% static 'plugins/dropzone/dropzone.css'%}" rel="stylesheet">
-    <!-- Sweet Alert Css -->
+<!--    &lt;!&ndash; Bootstrap Material Datetime Picker Css &ndash;&gt;-->
+<!--    <link href="{% static 'plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css' %}" rel="stylesheet" />-->
+<!--    &lt;!&ndash; Bootstrap DatePicker Css &ndash;&gt;-->
+<!--    <link href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.css' %}" rel="stylesheet" />-->
+<!--    &lt;!&ndash; Wait Me Css &ndash;&gt;-->
+<!--    <link href="{% static 'plugins/waitme/waitMe.css' %}" rel="stylesheet" />-->
+<!--     &lt;!&ndash; Colorpicker Css &ndash;&gt;-->
+<!--    <link href="{% static 'plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css'%}" rel="stylesheet" />-->
+<!--    &lt;!&ndash; Multi Select Css &ndash;&gt;-->
+<!--    <link href="{% static 'plugins/multi-select/css/multi-select.css' %}" rel="stylesheet">-->
+<!--    &lt;!&ndash; Bootstrap Spinner Css &ndash;&gt;-->
+<!--    <link href="{% static 'plugins/jquery-spinner/css/bootstrap-spinner.css'%}" rel="stylesheet">-->
+<!--    &lt;!&ndash; Bootstrap Tagsinput Css &ndash;&gt;-->
+<!--    <link href="{% static 'plugins/bootstrap-tagsinput/bootstrap-tagsinput.css'%}" rel="stylesheet">-->
+<!--     &lt;!&ndash; Dropzone Css &ndash;&gt;-->
+<!--    <link href="{% static 'plugins/dropzone/dropzone.css'%}" rel="stylesheet">-->
+<!--    &lt;!&ndash; Sweet Alert Css &ndash;&gt;-->
+<!--    <link href="{% static 'plugins/sweetalert/sweetalert.css' %}" rel="stylesheet" />-->
+<!--    &lt;!&ndash; Bootstrap Select Css &ndash;&gt;-->
+<!--    <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css' %}" rel="stylesheet" />-->
+
+<!-- Sweet Alert Css -->
     <link href="{% static 'plugins/sweetalert/sweetalert.css' %}" rel="stylesheet" />
+
     <!-- Bootstrap Select Css -->
     <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css' %}" rel="stylesheet" />
+
+        <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="{% static 'plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css' %}" rel="stylesheet" />
+
+    <!-- Bootstrap DatePicker Css -->
+    <link href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.css' %}" rel="stylesheet" />
+
+    <!-- Wait Me Css -->
+    <link href="{% static 'plugins/waitme/waitMe.css' %}" rel="stylesheet" />
+
 
 {% endblock %}
 {% block body %}
@@ -88,7 +104,7 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <label class="form-label">Start_Time</label>
-                                        {% crispy_field form.Start_Time 'class' 'timepicker' %}
+                                        {% crispy_field form.Start_Time 'class' 'timepicker' 'id' 'id_Start_Time' %}
                                     </div>
                                     {% if form.Start_Time.errors %}
                                         {% for error in form.Start_Time.errors %}
@@ -236,7 +252,39 @@
             </div>
 {% endblock %}
 {% block extra_js_lib %}
-     <!-- Jquery Validation Plugin Css -->
+<!--     &lt;!&ndash; Jquery Validation Plugin Css &ndash;&gt;-->
+<!--    <script src="{% static 'plugins/jquery-validation/jquery.validate.js' %}"></script>-->
+
+<!--    &lt;!&ndash; JQuery Steps Plugin Js &ndash;&gt;-->
+<!--    <script src="{% static 'plugins/jquery-steps/jquery.steps.js' %}"></script>-->
+
+<!--    &lt;!&ndash; Sweet Alert Plugin Js &ndash;&gt;-->
+<!--    <script src="{% static 'plugins/sweetalert/sweetalert.min.js' %}"></script>-->
+
+<!--    &lt;!&ndash; Custom Js &ndash;&gt;-->
+<!--    <script src="{% static 'js/pages/forms/form-validation.js' %}"></script>-->
+
+<!--    &lt;!&ndash; Autosize Plugin Js &ndash;&gt;-->
+<!--    <script src="{% static 'plugins/autosize/autosize.js' %}"></script>-->
+
+<!--    &lt;!&ndash; Moment Plugin Js &ndash;&gt;-->
+<!--    <script src="{% static 'plugins/momentjs/moment.js' %}"></script>-->
+
+<!--    &lt;!&ndash; Bootstrap Material Datetime Picker Plugin Js &ndash;&gt;-->
+<!--    <script src="{% static 'plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js' %}"></script>-->
+
+<!--    &lt;!&ndash; Bootstrap Datepicker Plugin Js &ndash;&gt;-->
+<!--    <script src="{% static 'plugins/bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>-->
+
+<!--    &lt;!&ndash; Custom Js &ndash;&gt;-->
+<!--    <script src="{% static 'js/pages/forms/basic-form-elements.js' %}"></script>-->
+
+<!--    &lt;!&ndash; Bootstrap Tags Input Plugin Js &ndash;&gt;-->
+<!--    <script src="{% static 'plugins/bootstrap-tagsinput/bootstrap-tagsinput.js'%}"></script>-->
+
+<!--    &lt;!&ndash; noUISlider Plugin Js &ndash;&gt;-->
+<!--    <script src="{% static 'plugins/nouislider/nouislider.js'%}"></script>-->
+<!-- Jquery Validation Plugin Css -->
     <script src="{% static 'plugins/jquery-validation/jquery.validate.js' %}"></script>
 
     <!-- JQuery Steps Plugin Js -->
@@ -263,17 +311,15 @@
     <!-- Custom Js -->
     <script src="{% static 'js/pages/forms/basic-form-elements.js' %}"></script>
 
-    <!-- Bootstrap Tags Input Plugin Js -->
-    <script src="{% static 'plugins/bootstrap-tagsinput/bootstrap-tagsinput.js'%}"></script>
-
-    <!-- noUISlider Plugin Js -->
-    <script src="{% static 'plugins/nouislider/nouislider.js'%}"></script>
-
 <script>
     $('#id_Start_Date').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
     $('#id_End_Date').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
     $('#id_Date_of_addmission').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
 
+</script>
+<script>
+
+    $('#id_Start_Time').pickatime({});
 </script>
 
 <script>

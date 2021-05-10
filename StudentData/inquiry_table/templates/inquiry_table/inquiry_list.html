@@ -1,7 +1,7 @@
 {% extends "users/layout1.html" %}
 {% load crispy_forms_field %}
 {% load static  %}
-{% block extra_head_lib %}
+{% block extra_css_lib %}
    <!-- JQuery DataTable Css -->
     <link href="{% static 'plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css'%}" rel="stylesheet">
 {% endblock %}
@@ -60,7 +60,8 @@
 
                                             <td>
                                                 <a href="{% url 'inquiry-update' i.id %}">Update</a>/
-                                                <a href="{% url 'inquiry-view' i.id %}">View</a>
+                                                <a href="{% url 'inquiry-view' i.id %}">View</a>/
+                                                <a href="{% url 'inquiry-delete' i.id %}">Delete</a>
                                             </td>
 
                                         </tr>
